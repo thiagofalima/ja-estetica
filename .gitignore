@@ -1,0 +1,29 @@
+# Arquivos de ambientes virtuais
+# A pasta `venv` é a mais comum para ambientes virtuais em Python
+venv/
+.venv/
+env/
+
+# Arquivos de cache do Python
+__pycache__/
+*.pyc
+
+# Arquivos de log
+*.log
+
+# Variáveis de ambiente
+.env
+.flaskenv
+
+# Pastas de cache e builds
+dist/
+build/
+*.egg-info/
+
+# Arquivos de metadados do macOS e Windows (caso você use esses sistemas)
+.DS_Store
+Thumbs.db
+
+# Arquivos de IDEs e editores de texto
+# Exemplo para VS Code
+.vscode/
