@@ -1,11 +1,20 @@
 .bg-body-tertiary {
-    --bs-tertiary-bg-rgb: 53, 82, 43;
+    --color-primary-bg: 53, 82, 43;
+    --bs-tertiary-bg-rgb: var(--color-primary-bg)
 }
 
 .navbar-brand {
-    --bs-navbar-brand-color: #FFFFFF;
+    --color-link: rgb(240, 234, 218);
+    --bs-navbar-brand-color: var(--color-link);
 }
 
 .nav-link {
-    --bs-nav-link-color: #FFFFFF;
+    --color-link: #f0eada;
+    --bs-nav-link-color: var(--color-link);
+}
+
+@media screen and (min-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
 }
