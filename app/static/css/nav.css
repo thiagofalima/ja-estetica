@@ -1,0 +1,11 @@
+.bg-body-tertiary {
+    --bs-tertiary-bg-rgb: 53, 82, 43;
+}
+
+.navbar-brand {
+    --bs-navbar-brand-color: #FFFFFF;
+}
+
+.nav-link {
+    --bs-nav-link-color: #FFFFFF;
+}
