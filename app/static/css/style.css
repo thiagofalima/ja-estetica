@@ -1,0 +1,25 @@
+:root {
+  /* ====================
+   * Cores principais
+   * ==================== */
+  --color-primary-bg: #35522b; /* Cor principal de fundo (ex: para o body) */
+  --color-secondary-bg: #799567; /* Cor de fundo para seções secundárias */
+
+  /* ====================
+   * Cores da tipografia
+   * ==================== */
+  --color-text-primary: #c8a980; /* Cor padrão para textos */
+  --color-text-light: #ccb494; /* Cor de texto em fundos escuros */
+  --color-text-dark: #af8440; /* Cor de destaque ou para links */
+
+  /* ====================
+   * Cores de destaque (Accent Colors)
+   * ==================== */
+  --color-light-accent: #f0eada; /* Cor de destaque para botões ou elementos específicos */
+
+  /* ====================
+   * Fontes
+   * ==================== */
+  --font-family-primary: "Montserrat", sans-serif; /* Fonte principal para a maioria dos textos */
+  --font-family-secondary: "Qwitcher Grypen", cursive; /* Fonte para títulos ou elementos decorativos */
+}
