@@ -22,3 +22,28 @@
   --font-family-primary: "Montserrat", sans-serif; /* Fonte principal para a maioria dos textos */
   --font-family-secondary: "Qwitcher Grypen", cursive; /* Fonte para títulos ou elementos decorativos */
 }
+
+body {
+  --bs-body-font-family: var(--font-family-primary);
+}
+
+.text-body-emphasis {
+
+  --bs-emphasis-color: var(--color-text-dark);
+}
+
+.btn.btn-success {
+  --bs-btn-bg: var(--color-primary-bg);
+  --bs-btn-color: var(--color-light-accent);
+  --bs-btn-hover-bg: var(--color-primary-bg);
+  --bs-btn-hover-border-color: var(--color-primary-bg);
+  --bs-btn-hover-color: var(--color-light-accent);
+}
+
+.btn.btn-outline-secondary {
+  --bs-btn-color: var(--color-text-dark);
+  --bs-btn-border-color: var(--color-text-dark);
+  --bs-btn-hover-bg: var(--color-text-dark);
+  --bs-btn-hover-border-color: var(--color-text-dark);
+  --bs-btn-hover-color: var(--color-light-accent);
+}
