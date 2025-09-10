@@ -1,14 +1,10 @@
 {% extends 'layout.html' %} {% block content %}
+<!-- Hero -->
 <div class="container col-xxl-8 px-4 py-5">
   <div class="row flex-lg-row-reverse justify-content-center align-items-center g-5 py-5">
     <div class="col-10 col-sm-8 col-lg-6 mt-0">
-      <img
-        src="{{ url_for('static', filename='images/hero-photo.jpg') }}"
-        class="d-block mx-lg-auto img-fluid border rounded-4"
-        alt="Bootstrap Themes"
-        width="300"
-        loading="lazy"
-      />
+      <img src="{{ url_for('static', filename='images/hero-photo.jpg') }}"
+        class="d-block mx-lg-auto img-fluid border rounded-4" alt="Bootstrap Themes" width="300" loading="lazy" />
     </div>
     <div class="col-lg-6">
       <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
@@ -30,4 +26,54 @@
     </div>
   </div>
 </div>
+
+<!-- Cards Queridinhos -->
+
+<div class="container">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button"
+        role="tab" aria-controls="home-tab-pane" aria-selected="true">Queridinhos</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button"
+        role="tab" aria-controls="profile-tab-pane" aria-selected="false">Feedbacks</button>
+    </li>
+
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
+            content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
+            content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
+            content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...
+    </div>
+  </div>
+</div>
+
 {% endblock %}
