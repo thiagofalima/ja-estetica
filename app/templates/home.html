@@ -1,33 +1,12 @@
+{% from 'macros/hero.html' import hero  %}
+
 {% extends 'layout.html' %} {% block content %}
 <!-- Hero -->
-<div class="container col-xxl-8 px-4 py-5">
-  <div class="row flex-lg-row-reverse justify-content-center align-items-center g-5 py-5">
-    <div class="col-10 col-sm-8 col-lg-6 mt-0">
-      <img src="{{ url_for('static', filename='images/hero-photo.jpg') }}"
-        class="d-block mx-lg-auto img-fluid border rounded-4" alt="Bootstrap Themes" width="300" loading="lazy" />
-    </div>
-    <div class="col-lg-6">
-      <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
-        Jacqueline Agostini Estética
-      </h1>
-      <p class="lead">
-        "Transforme sua beleza natural em arte. Ofereço tratamentos estéticos
-        personalizados para que você se sinta revigorado, confiante e radiante.
-        Descubra o bem-estar que você merece."
-      </p>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <button type="button" class="btn btn-success btn-lg px-4 me-md-2">
-          Procedimentos
-        </button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4">
-          Contato
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- Cards Queridinhos -->
+{{ hero() }}
+
+
+<!-- Tabs -->
 
 <div class="container">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
