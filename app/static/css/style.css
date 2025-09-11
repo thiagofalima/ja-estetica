@@ -26,6 +26,7 @@
 /* Body styling */
 
 body {
+  height: 100vh;
   --bs-body-font-family: var(--font-family-primary);
 }
 
@@ -41,6 +42,7 @@ body {
   --bs-btn-color: var(--color-light-accent);
   --bs-btn-hover-bg: var(--color-primary-bg);
   --bs-btn-hover-border-color: var(--color-primary-bg);
+  --bs-btn-border-color: var(--color-primary-bg);
   --bs-btn-hover-color: var(--color-light-accent);
 }
 
