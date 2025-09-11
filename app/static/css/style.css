@@ -53,7 +53,7 @@ body {
 /* Tabs Styling */
 
 button.nav-link:focus, button.nav-link:hover {
-    color: var(--color-text-dark);
+    color: var(--color-secondary-bg);
 }
 
 .nav-pills button.nav-link.active, .nav-pills .show > button.nav-link {
