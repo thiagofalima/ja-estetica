@@ -11,3 +11,7 @@ def home():
 @pages.route("/login", methods=["GET", "POST"])
 def login():
     return render_template("login.html", title="JA - Estética | Login")
+
+@pages.route("/register", methods=["GET", "POST"])
+def register():
+    return render_template("register.html", title="JA - Estética | Register")
