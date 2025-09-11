@@ -10,17 +10,62 @@
             <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
                 type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Feedbacks</button>
         </li>
+
     </ul>
     <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-queridinhos" role="tabpanel" aria-labelledby="pills-home-tab"
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
             tabindex="0">
-            ...
+
+            <!-- queridinhos -->
+            <section class="queridinhos">
+                <div class="container p-5">
+                    <div class="row justify-content-center gap-5">
+                        <div class="card col-md-12 col-lg-3 d-flex justify-content-center">
+                            <img src="{{ url_for('static', filename='images/logotipo.png')}}" class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Limpeza de Pele</h5>
+                                <p class="card-text">
+                                    Remove impurezas, cravos e células mortas, melhorando a textura da pele e a deixando
+                                    mais saudável.
+                                </p>
+                                <a href="#" class="btn btn-success">Agende já!</a>
+                            </div>
+                        </div>
+                        <div class="card col-md-12 col-lg-3 d-flex justify-content-center">
+                            <img src="{{ url_for('static', filename='images/logotipo.png')}}" class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Depilação a Laser</h5>
+                                <p class="card-text">
+                                    Método de longa duração que destrói o folículo do pelo, resultando em uma pele mais
+                                    lisa e livre de pelos indesejados.
+                                </p>
+                                <a href="#" class="btn btn-success">Agende já!</a>
+                            </div>
+                        </div>
+                        <div class="card col-md-12 col-lg-3 d-flex justify-content-center">
+                            <img src="{{ url_for('static', filename='images/logotipo.png')}}" class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Drenagem Linfática</h5>
+                                <p class="card-text">
+                                    Massagem que elimina toxinas e o excesso de líquidos, reduzindo inchaço e melhorando
+                                    a circulação.
+                                </p>
+                                <a href="#" class="btn btn-success">Agende já!</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
         </div>
-        <div class="tab-pane fade" id="pills-feedbacks" role="tabpanel" aria-labelledby="pills-profile-tab"
-            tabindex="0">
-            ...
-        </div>
+        </section>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+            Feedbacks</div>
+
     </div>
+
 </div>
 
 {% endmacro %}

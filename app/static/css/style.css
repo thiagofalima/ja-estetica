@@ -61,3 +61,19 @@ button.nav-link:focus, button.nav-link:hover {
     background-color: var(--color-secondary-bg);
 }
 
+.card {
+  box-shadow: 0 0 transparent;
+  transition: box-shadow .5s,
+              transform .5s;
+}
+
+.card:hover {
+  box-shadow: 5px 5px 5px rgba(10, 10, 10, .3);
+  transform: scale(1.02);
+}
+
+@media screen and (min-width: 991px) {
+  .card {
+    width: 100%;
+  }
+}
