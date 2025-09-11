@@ -27,6 +27,8 @@ body {
   --bs-body-font-family: var(--font-family-primary);
 }
 
+/* Hero Styling */
+
 .text-body-emphasis {
 
   --bs-emphasis-color: var(--color-text-dark);
@@ -47,3 +49,15 @@ body {
   --bs-btn-hover-border-color: var(--color-text-dark);
   --bs-btn-hover-color: var(--color-light-accent);
 }
+
+/* Tabs Styling */
+
+button.nav-link:focus, button.nav-link:hover {
+    color: var(--color-text-dark);
+}
+
+.nav-pills button.nav-link.active, .nav-pills .show > button.nav-link {
+    color: var(--color-light-accent);
+    background-color: var(--color-secondary-bg);
+}
+
