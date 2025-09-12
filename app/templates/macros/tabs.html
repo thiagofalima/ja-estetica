@@ -4,7 +4,7 @@
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
-                type="button" role="tab" aria-controls="pills-home" aria-selected="true">Queridinhos</button>
+                type="button" role="tab" aria-controls="pills-home" aria-selected="true">Procedimentos</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
@@ -17,9 +17,9 @@
             tabindex="0">
 
             <!-- queridinhos -->
-            <section class="queridinhos">
-                <div class="container pt-5 mb-5">
-                    <div class="row justify-content-center gap-5">
+            <section class="queridinhos" id="procedimentos">
+                <div class="container pt-5">
+                    <div class="row mb-5 justify-content-center gap-5">
                         <div class="card col-md-12 col-lg-3 d-flex justify-content-center">
                             <img src="{{ url_for('static', filename='images/logotipo.png')}}" class="card-img-top"
                                 alt="...">
@@ -52,6 +52,44 @@
                                 <p class="card-text">
                                     Massagem que elimina toxinas e o excesso de líquidos, reduzindo inchaço e melhorando
                                     a circulação.
+                                </p>
+                                <a href="#" class="btn btn-success">Agende já!</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-5 justify-content-center gap-5">
+                        <div class="card col-md-12 col-lg-3 d-flex justify-content-center">
+                            <img src="{{ url_for('static', filename='images/logotipo.png')}}" class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Brow Lamination</h5>
+                                <p class="card-text">
+                                    Técnica que alinha e fixa os pelos das sobrancelhas para um visual mais cheio,
+                                    definido e uniforme.
+                                </p>
+                                <a href="#" class="btn btn-success">Agende já!</a>
+                            </div>
+                        </div>
+                        <div class="card col-md-12 col-lg-3 d-flex justify-content-center">
+                            <img src="{{ url_for('static', filename='images/logotipo.png')}}" class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Lash Lifting</h5>
+                                <p class="card-text">
+                                    Procedimento que curva e levanta os cílios naturais, dando a impressão de mais
+                                    volume e comprimento.
+                                </p>
+                                <a href="#" class="btn btn-success">Agende já!</a>
+                            </div>
+                        </div>
+                        <div class="card col-md-12 col-lg-3 d-flex justify-content-center">
+                            <img src="{{ url_for('static', filename='images/logotipo.png')}}" class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Detox Corporal</h5>
+                                <p class="card-text">
+                                    Tratamento que usa massagem para eliminar toxinas, reduzir inchaço e promover
+                                    bem-estar.
                                 </p>
                                 <a href="#" class="btn btn-success">Agende já!</a>
                             </div>

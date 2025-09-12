@@ -53,6 +53,12 @@ body {
   --bs-btn-hover-color: var(--color-light-accent);
 }
 
+/* Hero Styling */
+.link {
+  color: var(--color-light-accent);
+  text-decoration: none;
+}
+
 /* Tabs Styling */
 
 button.nav-link:focus, button.nav-link:hover {
