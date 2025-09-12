@@ -3,35 +3,40 @@
 {% block content %}
 
 <div class="container mt-5 p-5">
-    <form novalidate name="login" action="{{ url_for('pages.login') }}" 
-    method="POST" 
-    class="d-flex-column justify-content-center">
+    <form novalidate name="login" action="{{ url_for('pages.login') }}" method="POST"
+        class="d-flex-column justify-content-center">
         {{ form.hidden_tag() }}
         <div class="mb-3">
-            
+
             {{ form.email.label(class="form-label")}}
             {{ form.email(class="form-control") }}
             {% if form.email.errors %}
-                {% for error in form.email.errors %}
-                    <div class="alert alert-danger mt-1">{{ error }}</div>
-                {% endfor %}
+            {% for error in form.email.errors %}
+            <div class="alert alert-danger mt-1">{{ error }}</div>
+            {% endfor %}
             {% endif %}
         </div>
         <div class="mb-3">
-            
-        {{ form.password.label(class="form-label") }}
-        {{ form.password(class="form-control") }}
 
-        {% if form.password.errors  %} 
-            {% for error in form.password.errors %} 
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control") }}
+
+            {% if form.password.errors %}
+            {% for error in form.password.errors %}
             <div class="alert alert-danger mt-1">{{ error }} </div>
             {% endfor %}
-        {% endif %}
+            {% endif %}
+        </div>
 
+        <div class="mb-3">
+            {% for error in form.recaptcha.errors %}
+                {{ error }}
+            {% endfor %}
+            {{ form.recaptcha }}
         </div>
 
         {{ form.submit(class="btn btn-success") }}
-        
+
     </form>
 </div>
 

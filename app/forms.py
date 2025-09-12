@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, EmailField, PasswordField, SubmitField
+from flask_wtf.recaptcha import RecaptchaField
 from wtforms.validators import InputRequired, Email, Length, EqualTo
 
 # Criando formulário de cadastro
@@ -11,7 +12,7 @@ class RegisterForm(FlaskForm):
         validators=[InputRequired(message="O nome completo é obrigatório.")]
     )
     birth_date = DateField(
-        "Data de Nascimento",
+        "Data de Nascimento*",
         validators=[InputRequired(message="A data de nascimento é obrigatória.")],
     )
 
@@ -56,4 +57,7 @@ class LoginForm(FlaskForm):
         "Senha *", validators=[InputRequired(message="A senha é obrigatória.")]
     )
 
+    recaptcha = RecaptchaField()
+
     submit = SubmitField("Entrar")
+

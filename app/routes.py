@@ -43,7 +43,3 @@ def login():
         return redirect(url_for("pages.home"))
 
     return render_template("login.html", title="JA - Estética | Login", form=form)
-
-@pages.route("/appointment/", methods=["GET", "POST"])
-def appointment():
-    pass
