@@ -23,6 +23,7 @@ def register():
             _id=uuid4().hex,
             name=form.name.data,
             birth_date=(form.birth_date.data).isoformat(),
+            phone_number=form.phone_number.data,
             email=form.email.data,
             password=pbkdf2_sha256.hash(form.password.data),
             register_date=datetime.now().isoformat(),
@@ -42,10 +43,6 @@ def login():
 
     if form.validate_on_submit():
         return redirect(url_for("pages.home"))
-
-    if not form.validate_on_submit():
-        flash("Usuário ou senha incorretos!", "danger")
-        return redirect(url_for("pages.login"))
 
     return render_template("login.html", title="JA - Estética | Login", form=form)
 
