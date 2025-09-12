@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, EmailField, PasswordField, SubmitField
-from wtforms.validators import DataRequired, Email, Length
+from wtforms.validators import InputRequired, Email, Length, EqualTo
 
 # Criando formulário de cadastro
 
@@ -8,26 +8,40 @@ from wtforms.validators import DataRequired, Email, Length
 class RegisterForm(FlaskForm):
     name = StringField(
         "Nome Completo *",
-        validators=[DataRequired(message="O nome completo é obrigatório.")],
+        validators=[InputRequired(message="O nome completo é obrigatório.")]
     )
     birth_date = DateField(
         "Data de Nascimento",
-        validators=[DataRequired(message="A data de nascimento é obrigatória.")],
+        validators=[InputRequired(message="A data de nascimento é obrigatória.")],
     )
+
+    phone_number = StringField(
+        "Celular com DDD *",
+        validators=[InputRequired(message="O celular é obrigatório."),
+                    Length(min=11, message="O celular precisa ter 11 digitos.")]
+    )
+
     email = EmailField(
         "Email *",
         validators=[
-            DataRequired(message="O email é obrigatório."),
+            InputRequired(message="O email é obrigatório."),
             Email(message="Email inválido."),
         ],
     )
     password = PasswordField(
         "Senha *",
         validators=[
-            DataRequired(message="A senha é obrigatória."),
+            InputRequired(message="A senha é obrigatória."),
             Length(min=8, message="A senha deve ter no mínimo 8 caracteres."),
         ],
     )
+
+    confirm_password = PasswordField(
+        "Confimar a Senha*",
+        validators=[InputRequired(message="É necessário confirmar a senha"), 
+                    EqualTo("password", message="As senhas devem ser iguais.")]
+    )
+
     submit = SubmitField("Cadastrar")
 
 
@@ -35,11 +49,11 @@ class RegisterForm(FlaskForm):
 class LoginForm(FlaskForm):
 
     email = EmailField(
-        "Email *", validators=[DataRequired(message="O email é obrigatório.")]
+        "Email *", validators=[InputRequired(message="O email é obrigatório.")]
     )
 
     password = PasswordField(
-        "Senha *", validators=[DataRequired(message="A senha é obrigatória.")]
+        "Senha *", validators=[InputRequired(message="A senha é obrigatória.")]
     )
 
     submit = SubmitField("Entrar")

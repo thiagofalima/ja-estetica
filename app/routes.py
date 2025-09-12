@@ -13,19 +13,7 @@ pages = Blueprint("pages", __name__, template_folder="templates")
 def home():
     return render_template("home.html", title="JA - Estética")
 
-
-@pages.route("/login", methods=["GET", "POST"])
-def login():
-
-    form = LoginForm()
-
-    if form.validate_on_submit():
-        return redirect(url_for("pages.home"))
-
-    return render_template("login.html", title="JA - Estética | Login", form=form)
-
-
-@pages.route("/register", methods=["GET", "POST"])
+@pages.route("/register/", methods=["GET", "POST"])
 def register():
     form = RegisterForm()
 
@@ -45,3 +33,17 @@ def register():
         return redirect(url_for("pages.login"))
 
     return render_template("register.html", title="JA - Estética | Cadastro", form=form)
+
+@pages.route("/login/", methods=["GET", "POST"])
+def login():
+
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        return redirect(url_for("pages.home"))
+
+    return render_template("login.html", title="JA - Estética | Login", form=form)
+
+@pages.route("/appointment/", methods=["GET", "POST"])
+def appointment():
+    pass
