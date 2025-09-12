@@ -8,7 +8,7 @@ class Client:
     _id: UUID
     name: str
     birth_date: date
-    phone: str
+    phone_number: str
     email: str
     password: str
     register_date: datetime
