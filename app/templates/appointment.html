@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="container mt-5 p-5">
+    <form novalidate name="appointment" action="{{ url_for('pages.appointment') }}" method="POST"
+        class="d-flex-column justify-content-center">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="container mt-3">
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+
+            {{ form.procedure_name.label(class="form-label")}}
+            {{ form.procedure_name(class="form-control") }}
+            {% if form.procedure_name.errors %}
+            {% for error in form.procedure_name.errors %}
+            <div class="alert alert-danger mt-1">{{ error }}</div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div class="mb-3">
+
+            {{ form.procedure_date.label(class="form-label") }}
+            {{ form.procedure_date(class="form-control")}}
+
+            {% if form.procedure_date.errors %}
+            {% for error in form.procedure_date.errors %}
+            <div class="alert alert-danger mt-1">{{ error }} </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div class="mb-3">
+
+            {{ form.procedure_time.label(class="form-label") }}
+            {{ form.procedure_time(
+            class="form-control",
+            min="09:00",
+            max="18:00") }}
+            <small>Nosso horário de atendimento é das 08:00 às 17:00</small>
+
+            {% if form.procedure_time.errors %}
+            {% for error in form.procedure_time.errors %}
+            <div class="alert alert-danger mt-1">{{ error }}</div>
+            {% endfor %}
+            {% endif %}
+        </div>
+
+        {{ form.submit(class="btn btn-success") }}
+
+    </form>
+</div>
+
+{% endblock %}
