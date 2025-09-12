@@ -16,9 +16,7 @@ def create_app():
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     
     # Configurando Recaptcha Keys
-    # app.config["RECAPTCHA_PUBLIC_KEY"] = os.getenv("RECAPTCHA_PUBLIC_KEY")
-    # app.config["RECAPTCHA_PRIVATE_KEY"] = os.getenv("RECAPTCHA_PRIVATE_KEY")
-
-    # app.config.from_object(__name__)
+    app.config["RECAPTCHA_PUBLIC_KEY"] = os.getenv("RECAPTCHA_PUBLIC_KEY")
+    app.config["RECAPTCHA_PRIVATE_KEY"] = os.getenv("RECAPTCHA_PRIVATE_KEY")
 
     return app
