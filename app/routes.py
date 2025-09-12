@@ -8,7 +8,7 @@ from flask import (Blueprint,
 from passlib.hash import pbkdf2_sha256
 from uuid import uuid4
 from datetime import datetime
-from app.forms import RegisterForm
+from app.forms import RegisterForm, LoginForm
 from app.models import Client
 
 pages = Blueprint("pages", __name__, template_folder="templates")
@@ -21,6 +21,11 @@ def home():
 
 @pages.route("/login", methods=["GET", "POST"])
 def login():
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        return redirect(url_for("pages.home"))
+
     return render_template("login.html", title="JA - Estética | Login")
 
 @pages.route("/register", methods=["GET", "POST"])
