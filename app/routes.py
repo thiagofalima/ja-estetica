@@ -1,9 +1,4 @@
-from flask import (Blueprint, 
-                   render_template,
-                   request,
-                   flash,
-                   redirect,
-                   url_for)
+from flask import Blueprint, render_template, request, flash, redirect, url_for
 
 from passlib.hash import pbkdf2_sha256
 from uuid import uuid4
@@ -21,12 +16,14 @@ def home():
 
 @pages.route("/login", methods=["GET", "POST"])
 def login():
+
     form = LoginForm()
 
     if form.validate_on_submit():
         return redirect(url_for("pages.home"))
 
-    return render_template("login.html", title="JA - Estética | Login")
+    return render_template("login.html", title="JA - Estética | Login", form=form)
+
 
 @pages.route("/register", methods=["GET", "POST"])
 def register():
@@ -47,7 +44,4 @@ def register():
         flash("Cadastro realizado com sucesso!", "success")
         return redirect(url_for("pages.login"))
 
-
-    return render_template("register.html",
-                            title="JA - Estética | Cadastro",
-                            form=form)
+    return render_template("register.html", title="JA - Estética | Cadastro", form=form)
