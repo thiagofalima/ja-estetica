@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container mt-5 p-5">
-    <form name="register" class="form" method="POST" action="{{ url_for('pages.register') }}">
+    <form novalidate name="register" class="form" method="POST" action="{{ url_for('pages.register') }}">
         {{ form.hidden_tag() }}
         <div class="mb-3">
             {{ form.name.label(class="form-label") }}
