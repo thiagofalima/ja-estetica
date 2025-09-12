@@ -3,24 +3,45 @@
 {% block content %}
 
 <div class="container mt-5 p-5">
-    <form class="d-flex-column justify-content-center">
+    <form name="register" class="form" method="POST" action="{{ url_for('pages.register') }}">
+        {{ form.hidden_tag() }}
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Nome Completo *</label>
-            <input required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control") }}
+            {% if form.name.errors %}
+                {% for error in form.name.errors %}
+                    <div class="alert alert-danger mt-1">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Data de Nascimento </label>
-            <input required type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            {{ form.birth_date.label(class="form-label") }}
+            {{ form.birth_date(class="form-control") }}
+            {% if form.birth_date.errors %}
+                {% for error in form.birth_date.errors %}
+                    <div class="alert alert-danger mt-1">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email *</label>
-            <input required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control") }}
+            {% if form.email.errors %}
+                {% for error in form.email.errors %}
+                    <div class="alert alert-danger mt-1">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Senha *</label>
-            <input required minlength="8" type="password" class="form-control" id="exampleInputPassword1">
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control") }}
+            {% if form.password.errors %}
+                {% for error in form.password.errors %}
+                    <div class="alert alert-danger mt-1">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
         </div>
-        <button type="submit" class="btn btn-success">Entrar</button>
+        {{ form.submit(class="btn btn-success") }}
     </form>
 </div>
 
