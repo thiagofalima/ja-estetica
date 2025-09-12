@@ -43,6 +43,10 @@ def login():
     if form.validate_on_submit():
         return redirect(url_for("pages.home"))
 
+    if not form.validate_on_submit():
+        flash("Usuário ou senha incorretos!", "danger")
+        return redirect(url_for("pages.login"))
+
     return render_template("login.html", title="JA - Estética | Login", form=form)
 
 

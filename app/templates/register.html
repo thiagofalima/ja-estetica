@@ -4,59 +4,71 @@
 
 <div class="container mt-5 p-5">
     <form novalidate name="register" class="form" method="POST" action="{{ url_for('pages.register') }}">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="container mt-3">
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
         {{ form.hidden_tag() }}
         <div class="mb-3">
             {{ form.name.label(class="form-label") }}
             {{ form.name(class="form-control") }}
             {% if form.name.errors %}
-                {% for error in form.name.errors %}
-                    <div class="alert alert-danger mt-1">{{ error }}</div>
-                {% endfor %}
+            {% for error in form.name.errors %}
+            <div class="alert alert-danger mt-1">{{ error }}</div>
+            {% endfor %}
             {% endif %}
         </div>
         <div class="mb-3">
             {{ form.birth_date.label(class="form-label") }}
             {{ form.birth_date(class="form-control") }}
             {% if form.birth_date.errors %}
-                {% for error in form.birth_date.errors %}
-                    <div class="alert alert-danger mt-1">{{ error }}</div>
-                {% endfor %}
+            {% for error in form.birth_date.errors %}
+            <div class="alert alert-danger mt-1">{{ error }}</div>
+            {% endfor %}
             {% endif %}
         </div>
         <div class="mb-3">
             {{ form.phone_number.label(class="form-label") }}
             {{ form.phone_number(class="form-control") }}
             {% if form.phone_number.errors %}
-                {% for error in form.phone_number.errors %}
-                    <div class="alert alert-danger mt-1">{{ error }}</div>
-                {% endfor %}
+            {% for error in form.phone_number.errors %}
+            <div class="alert alert-danger mt-1">{{ error }}</div>
+            {% endfor %}
             {% endif %}
         </div>
         <div class="mb-3">
             {{ form.email.label(class="form-label") }}
             {{ form.email(class="form-control") }}
             {% if form.email.errors %}
-                {% for error in form.email.errors %}
-                    <div class="alert alert-danger mt-1">{{ error }}</div>
-                {% endfor %}
+            {% for error in form.email.errors %}
+            <div class="alert alert-danger mt-1">{{ error }}</div>
+            {% endfor %}
             {% endif %}
         </div>
         <div class="mb-3">
             {{ form.password.label(class="form-label") }}
             {{ form.password(class="form-control") }}
             {% if form.password.errors %}
-                {% for error in form.password.errors %}
-                    <div class="alert alert-danger mt-1">{{ error }}</div>
-                {% endfor %}
+            {% for error in form.password.errors %}
+            <div class="alert alert-danger mt-1">{{ error }}</div>
+            {% endfor %}
             {% endif %}
         </div>
         <div class="mb-3">
             {{ form.confirm_password.label(class="form-label") }}
             {{ form.confirm_password(class="form-control") }}
             {% if form.confirm_password.errors %}
-                {% for error in form.confirm_password.errors %}
-                    <div class="alert alert-danger mt-1">{{ error }}</div>
-                {% endfor %}
+            {% for error in form.confirm_password.errors %}
+            <div class="alert alert-danger mt-1">{{ error }}</div>
+            {% endfor %}
             {% endif %}
         </div>
         {{ form.submit(class="btn btn-success") }}
