@@ -50,7 +50,7 @@ body {
   --bs-btn-hover-bg: var(--color-primary-bg);
   --bs-btn-hover-border-color: var(--color-primary-bg);
   --bs-btn-border-color: var(--color-primary-bg);
-  --bs-btn-hover-color: var(--color-light-accent);
+  --bs-btn-hover-color: #FFFFFF;
 }
 
 .btn.btn-outline-secondary {
@@ -125,6 +125,10 @@ button.nav-link:hover {
 
 .limpeza.card-photo::before {
   background-image: url('../images/limpeza-hover.jpg');
+}
+
+.detox.card-photo::before {
+  background-image: url('../images/detox-hover.jpg');
 }
 
 /* Estilo da imagem original dentro do card */
