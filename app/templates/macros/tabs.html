@@ -20,78 +20,102 @@
             <section class="queridinhos" id="procedimentos">
                 <div class="container pt-5">
                     <div class="row mb-5 justify-content-center gap-5">
-                        <div class="card col-md-12 col-lg-3 d-flex justify-content-center">
-                            <img src="{{ url_for('static', filename='images/logotipo.png')}}" class="card-img-top"
-                                alt="...">
+                        <div class="card pt-3 col-md-12 col-lg-3 d-flex justify-content-center align-items-center">
+                            <div class="card-photo limpeza">
+                                <img class="procedure_photo rounded-2"
+                                    src="{{ url_for('static', filename='images/limpeza-default.jpg')}}"
+                                    class="card-img-top" alt="...">
+                            </div>
                             <div class="card-body">
+                                <small>Segure a imagem para ver o resultado.</small>
                                 <h5 class="card-title">Limpeza de Pele</h5>
                                 <p class="card-text">
                                     Remove impurezas, cravos e células mortas, melhorando a textura da pele e a deixando
                                     mais saudável.
                                 </p>
-                                <a href="#" class="btn btn-success">Agende já!</a>
+                                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
                             </div>
                         </div>
-                        <div class="card col-md-12 col-lg-3 d-flex justify-content-center">
-                            <img src="{{ url_for('static', filename='images/logotipo.png')}}" class="card-img-top"
-                                alt="...">
+                        <div class="card pt-3 col-md-12 col-lg-3 d-flex justify-content-center align-items-center">
+                            <div class="card-photo">
+                                <img class="procedure_photo rounded-2"
+                                    src="{{ url_for('static', filename='images/laser-1.jpg')}}" class="card-img-top"
+                                    alt="...">
+                            </div>
                             <div class="card-body">
+                                <small>Segure a imagem para ver o resultado.</small>
                                 <h5 class="card-title">Depilação a Laser</h5>
                                 <p class="card-text">
                                     Método de longa duração que destrói o folículo do pelo, resultando em uma pele mais
                                     lisa e livre de pelos indesejados.
                                 </p>
-                                <a href="#" class="btn btn-success">Agende já!</a>
+                                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
                             </div>
                         </div>
-                        <div class="card col-md-12 col-lg-3 d-flex justify-content-center">
-                            <img src="{{ url_for('static', filename='images/logotipo.png')}}" class="card-img-top"
-                                alt="...">
+                        <div class="card pt-3 col-md-12 col-lg-3 d-flex justify-content-center align-items-center">
+                            <div class="card-photo">
+                                <img class="procedure_photo rounded-2"
+                                    src="{{ url_for('static', filename='images/logotipo.png')}}" class="card-img-top"
+                                    alt="...">
+                            </div>
                             <div class="card-body">
+                                <small>Segure a imagem para ver o resultado.</small>
                                 <h5 class="card-title">Drenagem Linfática</h5>
                                 <p class="card-text">
                                     Massagem que elimina toxinas e o excesso de líquidos, reduzindo inchaço e melhorando
                                     a circulação.
                                 </p>
-                                <a href="#" class="btn btn-success">Agende já!</a>
+                                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
                             </div>
                         </div>
                     </div>
                     <div class="row mb-5 justify-content-center gap-5">
-                        <div class="card col-md-12 col-lg-3 d-flex justify-content-center">
-                            <img src="{{ url_for('static', filename='images/logotipo.png')}}" class="card-img-top"
-                                alt="...">
+                        <div class="card pt-3 col-md-12 col-lg-3 d-flex justify-content-center align-items-center">
+                            <div class="card-photo">
+                                <img class="procedure_photo rounded-2"
+                                    src="{{ url_for('static', filename='images/brow-1.jpg')}}" class="card-img-top"
+                                    alt="...">
+                            </div>
                             <div class="card-body">
+                                <small>Segure a imagem para ver o resultado.</small>
                                 <h5 class="card-title">Brow Lamination</h5>
                                 <p class="card-text">
                                     Técnica que alinha e fixa os pelos das sobrancelhas para um visual mais cheio,
                                     definido e uniforme.
                                 </p>
-                                <a href="#" class="btn btn-success">Agende já!</a>
+                                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
                             </div>
                         </div>
-                        <div class="card col-md-12 col-lg-3 d-flex justify-content-center">
-                            <img src="{{ url_for('static', filename='images/logotipo.png')}}" class="card-img-top"
-                                alt="...">
+                        <div class="card pt-3 col-md-12 col-lg-3 d-flex justify-content-center align-items-center">
+                            <div class="card-photo">
+                                <img class="procedure_photo rounded-2"
+                                    src="{{ url_for('static', filename='images/brow-2.jpg')}}" class="card-img-top"
+                                    alt="...">
+                            </div>
                             <div class="card-body">
+                                <small>Segure a imagem para ver o resultado.</small>
                                 <h5 class="card-title">Lash Lifting</h5>
                                 <p class="card-text">
                                     Procedimento que curva e levanta os cílios naturais, dando a impressão de mais
                                     volume e comprimento.
                                 </p>
-                                <a href="#" class="btn btn-success">Agende já!</a>
+                                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
                             </div>
                         </div>
-                        <div class="card col-md-12 col-lg-3 d-flex justify-content-center">
-                            <img src="{{ url_for('static', filename='images/logotipo.png')}}" class="card-img-top"
-                                alt="...">
+                        <div class="card pt-3 col-md-12 col-lg-3 d-flex justify-content-center align-items-center">
+                            <div class="card-photo">
+                                <img class="procedure_photo rounded-2"
+                                    src="{{ url_for('static', filename='images/detox-1.jpg')}}" class="card-img-top"
+                                    alt="...">
+                            </div>
                             <div class="card-body">
+                                <small>Segure a imagem para ver o resultado.</small>
                                 <h5 class="card-title">Detox Corporal</h5>
                                 <p class="card-text">
                                     Tratamento que usa massagem para eliminar toxinas, reduzir inchaço e promover
                                     bem-estar.
                                 </p>
-                                <a href="#" class="btn btn-success">Agende já!</a>
+                                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
                             </div>
                         </div>
                     </div>

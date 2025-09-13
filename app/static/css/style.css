@@ -2,25 +2,33 @@
   /* ====================
    * Cores principais
    * ==================== */
-  --color-primary-bg: #35522b; /* Cor principal de fundo (ex: para o body) */
-  --color-secondary-bg: #799567; /* Cor de fundo para seções secundárias */
+  --color-primary-bg: #35522b;
+  /* Cor principal de fundo (ex: para o body) */
+  --color-secondary-bg: #799567;
+  /* Cor de fundo para seções secundárias */
 
   /* ====================
    * Cores da tipografia
    * ==================== */
-  --color-text-primary: #c8a980; /* Cor padrão para textos */
-  --color-text-light: #ccb494; /* Cor de texto em fundos escuros */
-  --color-text-dark: #af8440; /* Cor de destaque ou para links */
+  --color-text-primary: #c8a980;
+  /* Cor padrão para textos */
+  --color-text-light: #ccb494;
+  /* Cor de texto em fundos escuros */
+  --color-text-dark: #af8440;
+  /* Cor de destaque ou para links */
 
   /* ====================
    * Cores de destaque (Accent Colors)
    * ==================== */
-  --color-light-accent: #f0eada; /* Cor de destaque para botões ou elementos específicos */
+  --color-light-accent: #f0eada;
+  /* Cor de destaque para botões ou elementos específicos */
   /* ====================
    * Fontes
    * ==================== */
-  --font-family-primary: "Montserrat", sans-serif; /* Fonte principal para a maioria dos textos */
-  --font-family-secondary: "Qwitcher Grypen", cursive; /* Fonte para títulos ou elementos decorativos */
+  --font-family-primary: "Montserrat", sans-serif;
+  /* Fonte principal para a maioria dos textos */
+  --font-family-secondary: "Qwitcher Grypen", cursive;
+  /* Fonte para títulos ou elementos decorativos */
 }
 
 /* Body styling */
@@ -61,13 +69,15 @@ body {
 
 /* Tabs Styling */
 
-button.nav-link:focus, button.nav-link:hover {
-    color: var(--color-secondary-bg);
+button.nav-link:focus,
+button.nav-link:hover {
+  color: var(--color-secondary-bg);
 }
 
-.nav-pills button.nav-link.active, .nav-pills .show > button.nav-link {
-    color: var(--color-light-accent);
-    background-color: var(--color-secondary-bg);
+.nav-pills button.nav-link.active,
+.nav-pills .show>button.nav-link {
+  color: var(--color-light-accent);
+  background-color: var(--color-secondary-bg);
 }
 
 /* Cards Styling */
@@ -75,10 +85,68 @@ button.nav-link:focus, button.nav-link:hover {
 .card {
   box-shadow: 0 0 transparent;
   transition: box-shadow .5s,
-              transform .5s;
+  transform .5s;
 }
 
 .card:hover {
   box-shadow: 5px 5px 5px rgba(10, 10, 10, .3);
   transform: scale(1.02);
+}
+
+
+.card-photo {
+  height: 250px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  /* Garante que o pseudo-elemento respeite as bordas do pai */
+  overflow: hidden;
+}
+
+.card-photo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: .5rem;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.card-photo:hover::before {
+  opacity: 1;
+}
+
+.limpeza.card-photo::before {
+  background-image: url('../images/limpeza-hover.jpg');
+}
+
+/* Estilo da imagem original dentro do card */
+.procedure_photo {
+  max-width: 100%;
+  max-height: 100%;
+  z-index: 1; /* Garante que a imagem original fique acima do pseudo-elemento */
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* No hover da div pai, a imagem original fica transparente */
+.card-photo:hover .procedure_photo {
+  opacity: 0;
+}
+
+small {
+  color: rgba(0, 0, 0, .3);
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  small {
+    display: block;
+  }
 }
