@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from uuid import UUID
-from datetime import date, datetime
+from datetime import date, datetime, time
 
 @dataclass
 class Client:
@@ -20,6 +20,8 @@ class Appointment:
     _id: UUID
     client_name: str
     procedure_name: str
-    agenda: datetime
+    _date: date
+    _time: time
+
 
 

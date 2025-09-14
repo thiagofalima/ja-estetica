@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for, session
 
 from passlib.hash import pbkdf2_sha256
 from uuid import uuid4
@@ -16,6 +16,10 @@ def home():
 
 @pages.route("/register/", methods=["GET", "POST"])
 def register():
+
+    if session.get("email"):
+        return redirect(url_for("pages.home"))
+    
     form = RegisterForm()
 
     if form.validate_on_submit():
@@ -53,7 +57,6 @@ def appointment():
     form = AppointmentForm()
 
     if request.method == "POST" and form.validate_on_submit():
-        # procedure = Appointment()
 
         if form.procedure_date.data < date.today():
             flash("A data do procedimento não pode ser no passado. Por favor, escolha uma data futura.", "danger")
@@ -65,7 +68,16 @@ def appointment():
             # Retorna o template sem validar, mostrando o alerta e mantendo o usuário na mesma página
             return render_template('appointment.html', form=form)
         else:
+            procedure = Appointment(
+                _id=uuid4().hex,
+                client_name=session.get("name"),
+                procedure_name=form.procedure_name.data,
+                _date=form.procedure_date.data.isoformat(),
+                _time=form.procedure_time.data.isoformat()
+            )
+
             flash("Procedimento agendado com sucesso!", "success")
+            print(procedure)
             return redirect(url_for("pages.home"))
 
     return render_template("appointment.html", title="JA - Estética | Agendamento", form=form)
