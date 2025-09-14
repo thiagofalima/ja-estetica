@@ -85,7 +85,7 @@ button.nav-link:hover {
 .card {
   box-shadow: 0 0 transparent;
   transition: box-shadow .5s,
-  transform .5s;
+    transform .5s;
 }
 
 .card:hover {
@@ -95,8 +95,6 @@ button.nav-link:hover {
 
 
 .card-photo {
-  height: 250px;
-  width: 250px;
   display: flex;
   justify-content: center;
   position: relative;
@@ -131,11 +129,16 @@ button.nav-link:hover {
   background-image: url('../images/detox-hover.jpg');
 }
 
+.brow.card-photo::before {
+  background-image: url('../images/brow-hover.jpg');
+}
+
 /* Estilo da imagem original dentro do card */
 .procedure_photo {
   max-width: 100%;
   max-height: 100%;
-  z-index: 1; /* Garante que a imagem original fique acima do pseudo-elemento */
+  z-index: 1;
+  /* Garante que a imagem original fique acima do pseudo-elemento */
   transition: opacity 0.5s ease-in-out;
 }
 
@@ -153,4 +156,9 @@ small {
   small {
     display: block;
   }
+}
+
+/* Nosso espaço styling */
+iframe {
+  max-width: 100%;
 }
