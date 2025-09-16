@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from uuid import UUID
 from datetime import date, datetime, time
 
+# Classe para cliente
 @dataclass
 class Client:
 
@@ -13,7 +14,7 @@ class Client:
     password: str
     register_date: datetime
 
-
+# Classe para agendamento
 @dataclass
 class Appointment:
 
