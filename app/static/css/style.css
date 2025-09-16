@@ -37,6 +37,14 @@ body {
   --bs-body-font-family: var(--font-family-primary);
 }
 
+section#procedimentos {
+  scroll-margin-top: 150px;
+}
+
+section#nosso-espaço {
+  scroll-margin-top: 100px;
+}
+
 /* Hero Styling */
 
 .text-body-emphasis {
@@ -44,6 +52,7 @@ body {
   --bs-emphasis-color: var(--color-text-dark);
 }
 
+/* Alterando as cores para as variáveis Bootstrap */
 .btn.btn-success {
   --bs-btn-bg: var(--color-primary-bg);
   --bs-btn-color: var(--color-light-accent);
@@ -53,6 +62,7 @@ body {
   --bs-btn-hover-color: #FFFFFF;
 }
 
+/* Alterando as cores para as variáveis Bootstrap */
 .btn.btn-outline-secondary {
   --bs-btn-color: var(--color-text-dark);
   --bs-btn-border-color: var(--color-text-dark);
@@ -102,6 +112,7 @@ button.nav-link:hover {
   overflow: hidden;
 }
 
+/* Criando pseudo-elemento para colocar uma foto ao fundo */
 .card-photo::before {
   content: "";
   position: absolute;
@@ -121,6 +132,7 @@ button.nav-link:hover {
   opacity: 1;
 }
 
+/* Selecionando as fotos para cada card */
 .limpeza.card-photo::before {
   background-image: url('../images/limpeza-hover.jpg');
 }
@@ -131,6 +143,14 @@ button.nav-link:hover {
 
 .brow.card-photo::before {
   background-image: url('../images/brow-hover.jpg');
+}
+
+.design.card-photo::before {
+  background-image: url('../images/design-hover.jpg');
+}
+
+.laser.card-photo::before {
+  background-image: url('../images/laser-default.jpg');
 }
 
 /* Estilo da imagem original dentro do card */

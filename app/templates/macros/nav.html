@@ -1,30 +1,30 @@
 {% macro nav() %}
+  {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}" />
+  {% endblock %}
 
-{% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
-{% endblock %}
-
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" data-bs-theme="dark"">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{{ url_for('pages.home') }}">JA - Estética</a>
-    <button class="navbar-toggler" type="button" 
-    data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav text-center">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Estética</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Beleza</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Bem-Estar</a>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ url_for('pages.home') }}">JA - Estética</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav text-center">
+          <li class="nav-item">
+            <a class="nav-link" href="#procedimentos">Procedimentos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#nosso-espaco">Nosso Espaço</a>
+          </li>
+          {% if request.path == url_for('pages.login') or request.path == url_for('pages.register') %}
+            <p></p>
+          {% else %}
+            <li class="nav-item d-flex align-items-center logout">
+              <a class="logout-link" href="{{ url_for('pages.logout') }}"><img width="30" src="{{ url_for('static', filename='images/icons/logout.svg') }}" alt="" /></a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
 {% endmacro %}

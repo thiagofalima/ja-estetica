@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+# App factory
 def create_app():
 
     app = Flask(__name__)

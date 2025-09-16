@@ -5,6 +5,7 @@
 <div class="container mt-5 p-5">
     <form novalidate name="appointment" action="{{ url_for('pages.appointment') }}" method="POST"
         class="d-flex-column justify-content-center">
+        {% comment %} Para exibir as flash messages {% endcomment %}
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
         <div class="container mt-3">
@@ -18,8 +19,9 @@
         {% endif %}
         {% endwith %}
         {{ form.hidden_tag() }}
+        {% comment %} Trazendo os campos do formulário {% endcomment %}
         <div class="mb-3">
-
+            
             {{ form.procedure_name.label(class="form-label")}}
             {{ form.procedure_name(class="form-control") }}
             {% if form.procedure_name.errors %}
@@ -29,7 +31,7 @@
             {% endif %}
         </div>
         <div class="mb-3">
-
+            
             {{ form.procedure_date.label(class="form-label") }}
             {{ form.procedure_date(class="form-control")}}
 

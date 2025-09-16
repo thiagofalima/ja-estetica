@@ -1,20 +1,37 @@
+/* Selecionando componente Nav */
+nav {
+    width: 100%;
+    position: relative;
+}
+
+/* Alterando as cores para as variáveis Bootstrap */
 .bg-body-tertiary {
     --color-primary-bg: 53, 82, 43;
     --bs-tertiary-bg-rgb: var(--color-primary-bg)
 }
 
+/* Alterando as cores para as variáveis Bootstrap */
 .navbar-brand {
     --color-link: rgb(240, 234, 218);
     --bs-navbar-brand-color: var(--color-link);
 }
 
+/* Alterando as cores para as variáveis Bootstrap */
 .nav-link {
     --color-link: #f0eada;
     --bs-nav-link-color: var(--color-link);
 }
 
+
+/* Alterando comportamento para para uma tela maior ou igual a 768px */
 @media screen and (min-width: 768px) {
     .navbar-nav {
         text-align: center;
+    }
+
+    .logout {
+        position: absolute;
+        top: .75rem;
+        right: .75rem;
     }
 }

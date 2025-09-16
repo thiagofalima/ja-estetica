@@ -4,6 +4,7 @@
 
 <div class="container mt-5 p-5">
     <form novalidate name="register" class="form" method="POST" action="{{ url_for('pages.register') }}">
+        {% comment %} Para exibir as flash messages {% endcomment %}
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
         <div class="container mt-3">
@@ -16,6 +17,7 @@
         </div>
         {% endif %}
         {% endwith %}
+        {% comment %} Trazendo os campos do formulário {% endcomment %}
         {{ form.hidden_tag() }}
         <div class="mb-3">
             {{ form.name.label(class="form-label") }}

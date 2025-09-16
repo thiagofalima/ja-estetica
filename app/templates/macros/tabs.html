@@ -1,195 +1,137 @@
 {% macro tabs() %}
-
-<div class="container">
+  <div class="container">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
-                type="button" role="tab" aria-controls="pills-home" aria-selected="true">Procedimentos</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
-                type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Feedbacks</button>
-        </li>
-
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-procedimentos" type="button" role="tab" aria-controls="pills-procedimentos" aria-selected="true">Procedimentos</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-nosso-espaco-tab" data-bs-toggle="pill" data-bs-target="#pills-nosso-espaco" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Nosso Espaço</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-feedbacks" type="button" role="tab" aria-controls="pills-feedbacks" aria-selected="false">Feedbacks</button>
+      </li>
     </ul>
     <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
-            tabindex="0">
-
-            <!-- queridinhos -->
-            <section class="queridinhos d-flex" id="procedimentos">
-                <div class="container p-5">
-                    <div class="row mb-5 justify-content-center gap-5">
-                        <div class="card pt-2 col-md-12 col-lg-3 d-flex justify-content-center align-items-center">
-                            <div class="card-photo p-3 limpeza">
-                                <img class="procedure_photo rounded-2"
-                                    src="{{ url_for('static', filename='images/limpeza-default.jpg')}}"
-                                    class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <small>Segure a imagem para ver o resultado.</small>
-                                <h5 class="card-title">Limpeza de Pele</h5>
-                                <p class="card-text">
-                                    Remove impurezas, cravos e células mortas, melhorando a textura da pele e a deixando
-                                    mais saudável.
-                                </p>
-                                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
-                            </div>
-                        </div>
-                        <div class="card pt-2 col-md-12 col-lg-3 d-flex justify-content-center align-items-center">
-                            <div class="card-photo p-3">
-                                <img class="procedure_photo rounded-2"
-                                    src="{{ url_for('static', filename='images/laser-1.jpg')}}" class="card-img-top"
-                                    alt="...">
-                            </div>
-                            <div class="card-body">
-                                <small>Segure a imagem para ver o resultado.</small>
-                                <h5 class="card-title">Depilação a Laser</h5>
-                                <p class="card-text">
-                                    Método de longa duração que destrói o folículo do pelo, resultando em uma pele mais
-                                    lisa e livre de pelos indesejados.
-                                </p>
-                                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
-                            </div>
-                        </div>
-                        <div class="card pt-2 col-md-12 col-lg-3 d-flex justify-content-center align-items-center">
-                            <div class="card-photo p-3">
-                                <img class="procedure_photo rounded-2"
-                                    src="{{ url_for('static', filename='images/logotipo.png')}}" class="card-img-top"
-                                    alt="...">
-                            </div>
-                            <div class="card-body">
-                                <small>Segure a imagem para ver o resultado.</small>
-                                <h5 class="card-title">Drenagem Linfática</h5>
-                                <p class="card-text">
-                                    Massagem que elimina toxinas e o excesso de líquidos, reduzindo inchaço e melhorando
-                                    a circulação.
-                                </p>
-                                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-5 justify-content-center gap-5">
-                        <div class="card pt-2 col-md-12 col-lg-3 d-flex justify-content-center align-items-center">
-                            <div class="card-photo p-3">
-                                <img class="procedure_photo rounded-2"
-                                    src="{{ url_for('static', filename='images/brow-1.jpg')}}" class="card-img-top"
-                                    alt="...">
-                            </div>
-                            <div class="card-body">
-                                <small>Segure a imagem para ver o resultado.</small>
-                                <h5 class="card-title">Brow Lamination</h5>
-                                <p class="card-text">
-                                    Técnica que alinha e fixa os pelos das sobrancelhas para um visual mais cheio,
-                                    definido e uniforme.
-                                </p>
-                                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
-                            </div>
-                        </div>
-                        <div class="card pt-2 col-md-12 col-lg-3 d-flex justify-content-center align-items-center">
-                            <div class="card-photo p-3">
-                                <img class="procedure_photo rounded-2"
-                                    src="{{ url_for('static', filename='images/brow-2.jpg')}}" class="card-img-top"
-                                    alt="...">
-                            </div>
-                            <div class="card-body">
-                                <small>Segure a imagem para ver o resultado.</small>
-                                <h5 class="card-title">Lash Lifting</h5>
-                                <p class="card-text">
-                                    Procedimento que curva e levanta os cílios naturais, dando a impressão de mais
-                                    volume e comprimento.
-                                </p>
-                                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
-                            </div>
-                        </div>
-                        <div class="card pt-2 col-md-12 col-lg-3 d-flex justify-content-center align-items-center">
-                            <div class="card-photo p-3 detox">
-                                <img class="procedure_photo rounded-2"
-                                    src="{{ url_for('static', filename='images/detox-default.jpg')}}"
-                                    class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <small>Segure a imagem para ver o resultado.</small>
-                                <h5 class="card-title">Detox Corporal</h5>
-                                <p class="card-text">
-                                    Tratamento que usa massagem para eliminar toxinas, reduzir inchaço e promover
-                                    bem-estar.
-                                </p>
-                                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
+      <div class="tab-pane fade show active" id="pills-procedimentos" role="tabpanel" aria-labelledby="pills-procedimentos-tab" tabindex="0">
+        <!-- Procedimentos -->
+        <section class="procedimentos mt-5 d-flex justify-content-center" id="procedimentos">
+          <div class="row mb-5 container d-flex justify-content-center gap-5">
+            <div class="col-xl-3 col-lg-4 col-md-6 card pt-3">
+              <div class="card-photo rounded-3 limpeza">
+                <img src="{{ url_for('static', filename='images/limpeza-default.jpg') }}" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body">
+                <small>Toque e segure a imagem para ver o resultado.</small>
+                <h5 class="card-title mt-1">Limpeza de Pele</h5>
+                <p class="card-text">Remove impurezas, cravos e células mortas, melhorando a textura da pele e a deixando mais saudável.</p>
+                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 card pt-3">
+              <div class="card-photo rounded-3 detox">
+                <img src="{{ url_for('static', filename='images/detox-default.jpg') }}" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body">
+                <small>Toque e segure a imagem para ver o resultado.</small>
+                <h5 class="card-title mt-1">Detox Corporal</h5>
+                <p class="card-text">Tratamento que usa massagem para eliminar toxinas, reduzir inchaço e promover bem-estar.</p>
+                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 card pt-3">
+              <div class="card-photo rounded-3 brow">
+                <img src="{{ url_for('static', filename='images/brow-default.jpg') }}" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body">
+                <small>Toque e segure a imagem para ver o resultado.</small>
+                <h5 class="card-title mt-1">Brow Lamination</h5>
+                <p class="card-text">Técnica que alinha e fixa os pelos das sobrancelhas para um visual mais cheio, definido e uniforme.</p>
+                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 card pt-3">
+              <div class="card-photo rounded-3 design">
+                <img src="{{ url_for('static', filename='images/design-default.jpg') }}" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body">
+                <small>Toque e segure a imagem para ver o resultado.</small>
+                <h5 class="card-title mt-1">Design de Sobrancelhas</h5>
+                <p class="card-text">Equilíbrio entre formato, simetria e harmonia para valorizar o seu olhar.</p>
+                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 card pt-3">
+              <div class="card-photo rounded-3">
+                <img src="{{ url_for('static', filename='images/laser-default.jpg') }}" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body">
+                <small>Toque e segure a imagem para ver o resultado.</small>
+                <h5 class="card-title mt-1">Depilação a Laser</h5>
+                <p class="card-text">Tecnologia que elimina os pelos pela raiz, garantindo redução prolongada e pele lizinha.</p>
+                <a href="{{ url_for('pages.appointment') }}" class="btn btn-success">Agende já!</a>
+              </div>
             </div>
 
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+          </div>
+        </section>
+      </div>
+      <div class="tab-pane fade" id="pills-nosso-espaco" role="tabpanel" aria-labelledby="pills-nosso-espaco-tab" tabindex="0">
+        <!-- Nosso espaço -->
+        <section class="nosso-espaco mt-5 d-flex justify-content-center" id="nosso-espaco">
+          <div class="row container">
+            <div class="col-xl-12 col-lg-12 col-md-12 card py-3">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.0464470367488!2d-46.5679215!3d-23.6385076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5cccc0d3ca77%3A0xdcd6775202faf1ed!2sR.%20Francesco%20Coppini%2C%2083%20-%20Nova%20Gerti%2C%20S%C3%A3o%20Caetano%20do%20Sul%20-%20SP%2C%2009580-000!5e0!3m2!1spt-BR!2sbr!4v1757811170184!5m2!1spt-BR!2sbr" width="1000" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </section>
+      </div>
 
-            <section class="feedbacks">
-                <div class="container pt-5">
-                    <div class="card mb-5">
-                        <div class="card-header">
-                            Marcelle Del Mando Appolario
-                        </div>
-                        <div class="card-body">
-                            <figure>
-                                <blockquote class="blockquote">
-                                    <p>"A Jacque é uma pessoa maravilhosa e uma profissional extremamente competente,
-                                        delicada, doce.
-                                        Atualmente faço Drenagem Linfática com ela e tem sido bem eficaz contra o meu
-                                        inchaço nas pernas. Super recomendo!!!"</p>
-                                </blockquote>
-                                <figcaption class="blockquote-footer">
-                                    Marcelle Del Mando Appolario <cite title="Source Title">Feedback no Google</cite>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="card mb-5">
-                        <div class="card-header">
-                            Julia Rebuci
-                        </div>
-                        <div class="card-body">
-                            <figure>
-                                <blockquote class="blockquote">
-                                    <p>"A Jacque é uma profissional e pessoa maravilhosa! Eu saio do espaço muito mais
-                                        leve,
-                                        com a certeza de que o melhor investimento é o auto cuidado, ainda mais nas mãos
-                                        da Jacque! Indico de olhos fechado qualquer procedimento com ela!"</p>
-                                </blockquote>
-                                <figcaption class="blockquote-footer">
-                                    Julia Rebuci <cite title="Source Title">Feedback no Google</cite>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="card mb-5">
-                        <div class="card-header">
-                            Larissa Rosendo
-                        </div>
-                        <div class="card-body">
-                            <figure>
-                                <blockquote class="blockquote">
-                                    <p>"Jacqueline é uma profissional excepcional, faço a sobrancelhas com ela e é a
-                                        melhor que eu já fiz, sem dúvidas.
-                                        Sem contar toda a atenção, produtos de qualidade, ambiente lindo organizado.
-                                        Realizar os procedimentos com a Jacque é um momento de terapia. Recomendo de
-                                        olhos fechados!"</p>
-                                </blockquote>
-                                <figcaption class="blockquote-footer">
-                                    Larissa Rosendo <cite title="Source Title">Feedback no Google</cite>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-
+      <div class="tab-pane fade" id="pills-feedbacks" role="tabpanel" aria-labelledby="pills-feedbacks-tab" tabindex="0">
+        <!-- Feedbacks -->
+        <section class="feedbacks">
+          <div class="container pt-5">
+            <div class="card mb-5">
+              <div class="card-header">Marcelle Del Mando Appolario</div>
+              <div class="card-body">
+                <figure>
+                  <blockquote class="blockquote">
+                    <p>"A Jacque é uma pessoa maravilhosa e uma profissional extremamente competente, delicada, doce. Atualmente faço Drenagem Linfática com ela e tem sido bem eficaz contra o meu inchaço nas pernas. Super recomendo!!!"</p>
+                  </blockquote>
+                  <figcaption class="blockquote-footer">
+                    Marcelle Del Mando Appolario <cite title="Source Title">Feedback no Google</cite>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="card mb-5">
+              <div class="card-header">Julia Rebuci</div>
+              <div class="card-body">
+                <figure>
+                  <blockquote class="blockquote">
+                    <p>"A Jacque é uma profissional e pessoa maravilhosa! Eu saio do espaço muito mais leve, com a certeza de que o melhor investimento é o auto cuidado, ainda mais nas mãos da Jacque! Indico de olhos fechado qualquer procedimento com ela!"</p>
+                  </blockquote>
+                  <figcaption class="blockquote-footer">
+                    Julia Rebuci <cite title="Source Title">Feedback no Google</cite>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="card mb-5">
+              <div class="card-header">Larissa Rosendo</div>
+              <div class="card-body">
+                <figure>
+                  <blockquote class="blockquote">
+                    <p>"Jacqueline é uma profissional excepcional, faço a sobrancelhas com ela e é a melhor que eu já fiz, sem dúvidas. Sem contar toda a atenção, produtos de qualidade, ambiente lindo organizado. Realizar os procedimentos com a Jacque é um momento de terapia. Recomendo de olhos fechados!"</p>
+                  </blockquote>
+                  <figcaption class="blockquote-footer">
+                    Larissa Rosendo <cite title="Source Title">Feedback no Google</cite>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
-
-</div>
-
+  </div>
 {% endmacro %}

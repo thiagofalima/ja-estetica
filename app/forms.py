@@ -10,8 +10,6 @@ from flask_wtf.recaptcha import RecaptchaField
 from wtforms.validators import DataRequired, Email, Length, EqualTo, NumberRange
 
 # Criando formulário de cadastro
-
-
 class RegisterForm(FlaskForm):
     name = StringField(
         "Nome Completo *",
@@ -67,7 +65,7 @@ class LoginForm(FlaskForm):
 
     submit = SubmitField("Entrar")
 
-
+# Criando formulário para agendamento de procedimento 
 class AppointmentForm(FlaskForm):
     
     procedure_name = SelectField(

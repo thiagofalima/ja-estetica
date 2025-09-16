@@ -43,6 +43,9 @@ def register():
 @pages.route("/login/", methods=["GET", "POST"])
 def login():
 
+    if session.get("email"):
+        return redirect(url_for("pages.home"))
+
     form = LoginForm()
 
     if form.validate_on_submit():
@@ -54,31 +57,39 @@ def login():
 @pages.route("/appointment/", methods=["GET", "POST"])
 def appointment():
 
-    form = AppointmentForm()
+    if not session.get("email"):
+        return redirect(url_for("pages.register"))
+    else:
+        form = AppointmentForm()
 
-    if request.method == "POST" and form.validate_on_submit():
+        if request.method == "POST" and form.validate_on_submit():
 
-        if form.procedure_date.data < date.today():
-            flash("A data do procedimento não pode ser no passado. Por favor, escolha uma data futura.", "danger")
-            # Retorna o template sem validar, mostrando o alerta e mantendo o usuário na mesma página
-            return render_template('appointment.html', form=form)
-        
-        elif form.procedure_time.data < time(8, 0) or form.procedure_time.data > time(17, 0):            
-            flash("Nosso horário é das 08:00 às 17:00", "danger")
-            # Retorna o template sem validar, mostrando o alerta e mantendo o usuário na mesma página
-            return render_template('appointment.html', form=form)
-        else:
-            procedure = Appointment(
-                _id=uuid4().hex,
-                client_name=session.get("name"),
-                procedure_name=form.procedure_name.data,
-                _date=form.procedure_date.data.isoformat(),
-                _time=form.procedure_time.data.isoformat()
-            )
+            if form.procedure_date.data < date.today():
+                flash("A data do procedimento não pode ser no passado. Por favor, escolha uma data futura.", "danger")
+                # Retorna o template sem validar, mostrando o alerta e mantendo o usuário na mesma página
+                return render_template('appointment.html', form=form)
+            
+            elif form.procedure_time.data < time(8, 0) or form.procedure_time.data > time(17, 0):            
+                flash("Nosso horário é das 08:00 às 17:00", "danger")
+                # Retorna o template sem validar, mostrando o alerta e mantendo o usuário na mesma página
+                return render_template('appointment.html', form=form)
+            else:
+                procedure = Appointment(
+                    _id=uuid4().hex,
+                    client_name=session.get("name"),
+                    procedure_name=form.procedure_name.data,
+                    _date=form.procedure_date.data.isoformat(),
+                    _time=form.procedure_time.data.isoformat()
+                )
 
-            flash("Procedimento agendado com sucesso!", "success")
-            print(procedure)
-            return redirect(url_for("pages.home"))
+                flash("Procedimento agendado com sucesso!", "success")
+                print(procedure)
+                return redirect(url_for("pages.home"))
 
-    return render_template("appointment.html", title="JA - Estética | Agendamento", form=form)
+        return render_template("appointment.html", title="JA - Estética | Agendamento", form=form)
 
+@pages.route("/logout")
+def logout():
+    session.clear()
+
+    return redirect(url_for(".login"))
