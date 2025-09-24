@@ -19,6 +19,4 @@ EXPOSE 5000
 
 ENV FLASK_APP=run.py
 
-# Comando para rodar a aplicação quando o container iniciar
-# O '--host=0.0.0.0' faz com que a aplicação seja acessível de fora do container
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "run:app", "--workers", "4"]

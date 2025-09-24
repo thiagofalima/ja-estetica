@@ -1,0 +1,16 @@
+services:
+  # Nome do seu serviço (pode ser qualquer nome, ex: 'web')
+  flask_app:
+    # Instrução para construir a imagem a partir do Dockerfile no diretório atual
+    build: .
+    
+    # Mapeia a porta 5000 do seu computador (host) para a porta 5000 do contêiner
+    ports:
+      - "80:5000"
+    
+    # Monta o diretório local no contêiner para que as mudanças no código sejam refletidas (bom para desenvolvimento)
+    volumes:
+      - .:/app
+    
+    # Nome opcional para o contêiner
+    container_name: ja-estetica-web-app
