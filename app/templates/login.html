@@ -5,7 +5,6 @@
 <div class="container mt-5 p-5">
     <form novalidate name="login" action="{{ url_for('pages.login') }}" method="POST"
         class="d-flex-column justify-content-center">
-        {% comment %} Para exibir as flash messages {% endcomment %}
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
         <div class="container mt-3">
@@ -19,7 +18,6 @@
         {% endif %}
         {% endwith %}
         {{ form.hidden_tag() }}
-        {% comment %} Trazendo os campos do formulário {% endcomment %}
         <div class="mb-3">
 
             {{ form.email.label(class="form-label")}}
@@ -40,13 +38,6 @@
             <div class="alert alert-danger mt-1">{{ error }} </div>
             {% endfor %}
             {% endif %}
-        </div>
-
-        <div class="mb-3">
-            {% for error in form.recaptcha.errors %}
-            {{ error }}
-            {% endfor %}
-            {{ form.recaptcha }}
         </div>
 
         {{ form.submit(class="btn btn-success") }}

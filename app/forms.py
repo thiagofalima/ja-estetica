@@ -61,7 +61,7 @@ class LoginForm(FlaskForm):
         "Senha *", validators=[DataRequired(message="A senha é obrigatória.")]
     )
 
-    recaptcha = RecaptchaField()
+    # recaptcha = RecaptchaField()
 
     submit = SubmitField("Entrar")
 
