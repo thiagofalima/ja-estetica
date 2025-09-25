@@ -72,21 +72,27 @@ section#nosso-espaço {
 }
 
 /* Hero Styling */
-.link {
-  color: var(--color-light-accent);
+a.link {
   text-decoration: none;
+  color: var(--color-light-accent);
+}
+
+a.link.contact {
+  color: var(--color-text-dark);
 }
 
 /* Tabs Styling */
 
 button.nav-link:focus,
-button.nav-link:hover {
+button.nav-link {
   color: var(--color-secondary-bg);
+  font-weight: 500;
 }
 
 .nav-pills button.nav-link.active,
 .nav-pills .show>button.nav-link {
   color: var(--color-light-accent);
+  font-weight: 500;
   background-color: var(--color-secondary-bg);
 }
 
