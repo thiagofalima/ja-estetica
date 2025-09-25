@@ -1,6 +1,51 @@
 from app.app import create_app
+from werkzeug.middleware.proxy_fix import ProxyFix
+from flask_talisman import Talisman
 
 app = create_app()
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
+csp = {
+    # Permite a maioria dos recursos (imagens, AJAX) do próprio site ('self')
+    'default-src': ["'self'"], 
+    
+    # Liberar o carregamento de CSS
+    'style-src': [
+        "'self'", 
+        "'unsafe-inline'", # NECESSÁRIO se você tiver CSS inline (cuidado: pode ser um risco de segurança)
+        'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css', # Bootstrap CSS
+        'https://fonts.googleapis.com'       # Google Fonts CSS
+    ],
 
-# if __name__ == "__main__":
-#     app.run(host="0.0.0.0", debug=True)
+    'img-src': [
+        "'self'", 
+        "data:",  # ESSENCIAL: Permite que o navegador carregue imagens (como SVGs) codificadas em base64 ou URLs de dados diretamente no CSS ou HTML.
+        # Se você tiver imagens de outros domínios, adicione-os aqui:
+        # '*.algum-dominio-externo.com'
+    ],
+    
+    # Liberar o carregamento de JavaScript
+    'script-src': [
+        "'self'",
+        "'unsafe-inline'",
+        'https://cdnjs.cloudflare.com',      # Se usar outros libs/Bootstrap JS do CDN
+        'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js' # Bootstrap JS
+    ],
+    
+    # Liberar o carregamento dos arquivos de fonte (Woff, TTF, etc.)
+    'font-src': [
+        "'self'",
+        'https://fonts.gstatic.com' # Arquivos de fontes do Google Fonts
+    ]
+}
+
+# Inicialize o Talisman com a política de CSP customizada
+Talisman(
+    app, 
+    content_security_policy=csp, 
+    # Mantenha o Strict-Transport-Security (HSTS) para HTTPS
+    strict_transport_security=True 
+)
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", debug=True)
