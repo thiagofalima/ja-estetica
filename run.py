@@ -18,9 +18,7 @@ csp = {
 
     'img-src': [
         "'self'", 
-        "data:",  # ESSENCIAL: Permite que o navegador carregue imagens (como SVGs) codificadas em base64 ou URLs de dados diretamente no CSS ou HTML.
-        # Se você tiver imagens de outros domínios, adicione-os aqui:
-        # '*.algum-dominio-externo.com'
+        "data:",   
     ],
     
     # Liberar o carregamento de JavaScript
@@ -35,7 +33,12 @@ csp = {
     'font-src': [
         "'self'",
         'https://fonts.gstatic.com' # Arquivos de fontes do Google Fonts
-    ]
+    ],
+    # Para liberar o conteúdo do google maps
+    'frame-src': [
+        "'self'",
+        'https://*.google.com'
+    ],
 }
 
 # Inicialize o Talisman com a política de CSP customizada
