@@ -1,5 +1,7 @@
 from flask import Flask
 from app.routes import pages
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 import os
 from dotenv import load_dotenv
 
@@ -15,6 +17,10 @@ def create_app():
 
     # Configurando Secret Key da aplicação
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+
+    # Configurando DB
+    app.config["DATABASE_URI"] = os.getenv("DATABASE_URI")
+    app.db = MongoClient(app.config["DATABASE_URI"]).ja_estetica
 
     # Configurando Recaptcha Keys
     # app.config["RECAPTCHA_PUBLIC_KEY"] = os.getenv("RECAPTCHA_PUBLIC_KEY")

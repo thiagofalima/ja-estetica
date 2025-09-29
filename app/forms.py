@@ -1,19 +1,22 @@
 from flask_wtf import FlaskForm
-from wtforms import (StringField,
-                      DateField,
-                      TimeField, 
-                      EmailField, 
-                      PasswordField, 
-                      SubmitField,
-                      SelectField)
+from wtforms import (
+    StringField,
+    DateField,
+    TimeField,
+    EmailField,
+    PasswordField,
+    SubmitField,
+    SelectField,
+)
 from flask_wtf.recaptcha import RecaptchaField
 from wtforms.validators import DataRequired, Email, Length, EqualTo, NumberRange
+
 
 # Criando formulário de cadastro
 class RegisterForm(FlaskForm):
     name = StringField(
         "Nome Completo *",
-        validators=[DataRequired(message="O nome completo é obrigatório.")]
+        validators=[DataRequired(message="O nome completo é obrigatório.")],
     )
     birth_date = DateField(
         "Data de Nascimento*",
@@ -22,8 +25,10 @@ class RegisterForm(FlaskForm):
 
     phone_number = StringField(
         "Celular com DDD *",
-        validators=[DataRequired(message="O celular é obrigatório."),
-                    Length(min=11, message="O celular precisa ter 11 digitos.")]
+        validators=[
+            DataRequired(message="O celular é obrigatório."),
+            Length(min=11, message="O celular precisa ter 11 digitos."),
+        ],
     )
 
     email = EmailField(
@@ -43,8 +48,10 @@ class RegisterForm(FlaskForm):
 
     confirm_password = PasswordField(
         "Confimar a Senha*",
-        validators=[DataRequired(message="É necessário confirmar a senha"), 
-                    EqualTo("password", message="As senhas devem ser iguais.")]
+        validators=[
+            DataRequired(message="É necessário confirmar a senha"),
+            EqualTo("password", message="As senhas devem ser iguais."),
+        ],
     )
 
     submit = SubmitField("Cadastrar")
@@ -65,9 +72,10 @@ class LoginForm(FlaskForm):
 
     submit = SubmitField("Entrar")
 
-# Criando formulário para agendamento de procedimento 
+
+# Criando formulário para agendamento de procedimento
 class AppointmentForm(FlaskForm):
-    
+
     procedure_name = SelectField(
         "Procedimento *",
         validators=[DataRequired(message="Escolha o procedimento.")],
@@ -78,20 +86,20 @@ class AppointmentForm(FlaskForm):
             "Lash Lifting",
             "Detox Corporal",
             "Limpeza de Pele",
-            "Depilação a Laser"
-        ]
+            "Depilação a Laser",
+        ],
     )
 
     procedure_date = DateField(
-        "Data", format='%Y-%m-%d',
+        "Data",
+        format="%Y-%m-%d",
         validators=[DataRequired(message="Escolha o dia do seu procedimento.")],
     )
 
     procedure_time = TimeField(
-        "Hora", format="%H:%M",
-        validators=[DataRequired(message="Escolha o horário do seu procedimento.")]
+        "Hora",
+        format="%H:%M",
+        validators=[DataRequired(message="Escolha o horário do seu procedimento.")],
     )
 
     submit = SubmitField("Agendar")
-
-    
