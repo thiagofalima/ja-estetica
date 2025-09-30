@@ -43,6 +43,11 @@
         {{ form.submit(class="btn btn-success") }}
 
     </form>
+    <small class="mt-3">Não possui login?
+        <a href="{{ url_for('pages.register') }}" class="">
+            Clique aqui para se cadastrar!</a>
+    </small>
+    
 </div>
 
 {% endblock %}
