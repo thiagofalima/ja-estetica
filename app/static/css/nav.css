@@ -12,8 +12,11 @@ nav {
 
 /* Alterando as cores para as variáveis Bootstrap */
 .navbar-brand {
+    padding: 10px;
     --color-link: rgb(240, 234, 218);
     --bs-navbar-brand-color: var(--color-link);
+    border: 2px solid #FAFAFA55;
+    border-radius: 2rem;
 }
 
 /* Alterando as cores para as variáveis Bootstrap */
