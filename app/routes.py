@@ -11,10 +11,15 @@ from flask import (
 from dataclasses import asdict
 from passlib.hash import pbkdf2_sha256
 from uuid import uuid4
-from datetime import datetime, date, time
+from datetime import datetime, date, time, timedelta
 from app.forms import RegisterForm, LoginForm, AppointmentForm
 import time as tm
 from app.models import Client, Appointment
+import os.path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 pages = Blueprint("pages", __name__, template_folder="templates")
 
@@ -74,6 +79,9 @@ def login():
         if cliente and pbkdf2_sha256.verify(form.password.data, cliente.password):
             session["cliente_id"] = cliente._id
             session["email"] = cliente.email
+        else:
+            flash("Usuário ou senha incorretos!", "danger")
+            return redirect(url_for("pages.login"))
 
         return redirect(url_for("pages.home"))
 
@@ -112,17 +120,68 @@ def appointment():
                 procedure_name=form.procedure_name.data,
                 _date=form.procedure_date.data.isoformat(),
                 _time=form.procedure_time.data.isoformat(),
+                appointment_date=datetime.now().isoformat()
             )
 
             current_app.db.appointments.insert_one(asdict(procedure))
 
-            flash("Procedimento agendado com sucesso!", "success")
-            flash(
-                f"{procedure.procedure_name} para o dia {procedure._date} às {procedure._time}",
+            calendar_service = current_app.calendar_service 
+        
+            if calendar_service:
+            # 2. Combinar data e hora do formulário em objetos datetime
+                start_datetime_obj = datetime.combine(form.procedure_date.data, form.procedure_time.data)
+                
+                # 3. Calcular a hora de término (ex: 1 hora de duração)
+                duration = timedelta(hours=1)
+                end_datetime_obj = start_datetime_obj + duration
+
+                # 4. Definir o fuso horário (AJUSTE CONFORME SUA LOCALIZAÇÃO)
+                TIMEZONE = 'America/Sao_Paulo'
+                
+                # 5. Criar o corpo do evento
+                event = {
+                    'summary': f"{procedure.procedure_name} - Cliente: {session.get('email')}",
+                    'location': 'Endereço da Clínica (Opcional)',
+                    'description': f'Novo agendamento criado via App JA Estética.\nCliente: {session.get("email")}',
+                    
+                    # Formato RFC 3339 exigido pela API
+                    'start': {
+                        'dateTime': start_datetime_obj.isoformat(),
+                        'timeZone': TIMEZONE,
+                    },
+                    'end': {
+                        'dateTime': end_datetime_obj.isoformat(),
+                        'timeZone': TIMEZONE,
+                    },
+                    
+                    'reminders': {
+                        'useDefault': True,
+                    },
+                }
+
+                # 6. Inserir o evento no Google Calendar
+                try:
+                    # O calendarId='primary' se refere ao calendário principal da conta de serviço/autorizada
+                    event_result = calendar_service.events().insert(
+                        calendarId=os.getenv("CALENDAR_ID"), 
+                        body=event
+                    ).execute()
+                    
+                    flash("Evento criado no Google Agenda com sucesso!", "success")
+                    # print(f"Evento criado: {event_result.get('htmlLink')}")
+                    
+                except Exception as e:
+                    # Trata a exceção, caso haja falha de autenticação ou API
+                    flash(f"Erro ao criar evento no Google Agenda. Verifique as credenciais: {e}", "danger")
+        
+
+            flash(f"""Procedimento agendado com sucesso!
+            {procedure.procedure_name} para o dia {procedure._date} às {procedure._time}.
+            """,
                 "success",
             )
             print(procedure)
-            return redirect(url_for("pages.home"))
+            return redirect(url_for("pages.appointment"))
 
     return render_template(
         "appointment.html", title="JA - Estética | Agendamento", form=form

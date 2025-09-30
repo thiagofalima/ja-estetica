@@ -25,3 +25,4 @@ class Appointment:
     procedure_name: str
     _date: date
     _time: time
+    appointment_date: datetime
